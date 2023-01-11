@@ -1,0 +1,23 @@
+## Zsh
+export ZSH=$HOMR/.oh-my-zsh
+source $ZSH/oh-my-zsh.sh
+
+export PATH=$HOME.local/bin:$PATH
+export EDITOR-'vim'
+export LANG-en_US.UTF-8
+
+## OhMy ZSH Plugins
+pluging=(
+  git
+  python
+  sudo
+  vi-mode
+  zsh-syntax-hilighting
+)
+
+source $ZSH/oh-my-zsh.sh
+
+## Aliases
+alias l='ls -l'
+alias la='la -al'
+
