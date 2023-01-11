@@ -1,0 +1,13 @@
+# Mac
+.DS_Store
+
+# Vim
+*~
+*.swp
+
+# Vagrant
+.vagrant
+
+# Python
+*.py[cod]
+__pycache__

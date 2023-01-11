@@ -1,0 +1,11 @@
+---
+- name: Set timezone
+  timezone:
+    name: "{{ ntp_timezone }}"
+
+- name: start time synchronization
+  shell: timedatectl set-ntp on
+  become: yes
+
+      
+
