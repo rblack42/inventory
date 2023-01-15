@@ -1,0 +1,95 @@
+NGINX Setup
+===========
+
+- brew install nginx
+
+run server:
+
+= sudo nginx
+
+access default page
+
+- http://localhost:8080
+
+edit config
+
+- /usr/local/etc/nginx/nginx.ocnf
+
+change user:
+
+- user rblack staff;
+
+change port to 80
+
+- sudo nginx -s stop
+
+server {
+listen       80;
+server_name  localhost;
+
+#access_log  logs/host.access.log  main;
+
+location / {
+    root   html;
+    index  index.html index.htm;
+}
+
+Now access at normal port
+
+default html folder
+
+- /usr/local/Cellar/nginx/1.2.3/html
+
+change config to:
+
+location / {
+    root   /Users/rblack/www;
+    index  index.html index.htm;
+}
+
+for testing copy default index
+
+- cp /usr/local/Cellar/nginx/1.2.3/html/index.html ~/www
+
+run server on boot:
+
+- brew services start nginx
+
+to restart server after config changes
+
+- brew services restart nginx
+install php
+
+- brew install php
+
+start php
+
+- brew services start php
+
+add php files to index
+
+- index inr.php index.html index.htm;
+
+add new location
+
+location ~ \.php {
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    include fastcgi_params;
+    fastcgi_pass 127.0.0.1:9000;
+    fastcgi_split_path_info ^(.+\.php)(/.+)$;
+    fastcgi_buffers 16 16k;
+    fastcgi_buffer_size 32k;
+}
+
+update php configuration
+
+- /usr/local/etc/php/7.3/php-fpm.d/www.conf
+
+user = rblack
+group = staff
+
+restart services
+
+- brew services restart nginx
+0 brew services restart php
+

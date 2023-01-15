@@ -9,5 +9,17 @@
 .vagrant
 
 # Python
+.direnv/
 *.py[cod]
 __pycache__
+dist/
+build/
+*.egg-info/
+
+# Flask
+instance
+
+# pytest
+.pytest_cache/
+.coverage
+htmlcon/
